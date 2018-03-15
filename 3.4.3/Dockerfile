@@ -16,7 +16,7 @@ RUN if ( (Get-FileHash -Path .\R-win.exe -Algorithm MD5).hash -ne $env:R_INSTALL
 
 # For options see https://cloud.r-project.org/bin/windows/base/rw-FAQ.html#How-do-I-check-an-installation_003f
 RUN Start-Process .\R-win.exe -ArgumentList '/SILENT /DIR="c:\R"' -Wait ; \
-  Remove-Item .\R-win.exe -Force
+    Remove-Item .\R-win.exe -Force
 
 # Add R.exe to PATH
 RUN $rPath = 'C:\R\bin' ; \
