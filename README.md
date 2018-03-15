@@ -1,6 +1,7 @@
 # rocker-win
 
 Explorations into running [R](https://www.r-project.org/) in [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index) with [Docker for Windows](https://docs.docker.com/docker-for-windows/).
+It provides images based on [`microsoft/windowsservercore`](https://hub.docker.com/r/microsoft/windowsservercore/) and [`microsoft/nanoserver`](https://hub.docker.com/r/microsoft/nanoserver/).
 
 [![](https://images.microbadger.com/badges/image/nuest/rocker-win.svg)](https://microbadger.com/images/nuest/rocker-win "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/nuest/rocker-win.svg)](https://microbadger.com/images/nuest/rocker-win "Get your own version badge on microbadger.com")
 
@@ -8,12 +9,15 @@ Explorations into running [R](https://www.r-project.org/) in [Windows Containers
 
 ```
 docker build --tag rocker-win:3.4.3 rocker-win:latest --file 3.4.3/Dockerfile .
+docker build --tag rocker-win:3.4.3-nano --tag rocker-win:nano --tag rocker-win:nano-latest --file 3.4.3-nano/Dockerfile .
 ```
 
 ## Use
 
 ```
 docker run --rm -it rocker-win
+
+docker run --rm -it rocker-win:nano
 
 # get a powershell in the container
 docker run --rm -it rocker-win powershell.exe
