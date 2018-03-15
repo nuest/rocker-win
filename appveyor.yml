@@ -1,0 +1,30 @@
+version: 1.0.{build}
+
+image: Visual Studio 2017
+
+environment:
+  DOCKER_USER:
+    secure: kAzYC3KJP1op+bjIuqQRdg==
+  DOCKER_PASS:
+    secure: qh5Dw8ePSOpWoRpxzNdsNZWzX8u0PjTUTTx200SP2JE=
+
+install:
+  - ps: Write-Host Server version $(gp 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').BuildLabEx
+  - docker version
+
+build_script:
+  - ps: Write-Host Starting build
+  - ps: |
+      docker build --tag rocker-win:3.4.3 --file 3.4.3/Dockerfile .
+      docker tag rocker-win:3.4.3 rocker-win:latest
+
+test_script:
+  - ps: docker run --rm -it rocker-win R.exe --version
+
+deploy_script:
+  - ps: |
+      docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
+      docker tag rocker-win:3.4.3 nuest/rocker-win:3.4.3
+      docker tag rocker-win:latest nuest/rocker-win:latest
+      docker push nuest/rocker-win:3.4.3
+      docker push nuest/rocker-win:latest
