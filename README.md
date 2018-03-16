@@ -33,10 +33,11 @@ The images include [micro](https://micro-editor.github.io/) as a terminal-based 
 Linux containers seem like the better way to go for R: they are more lightweight, the [Rocker](https://www.rocker-project.org/) stack of images is excellently maintained and hardened as well as flexible.
 However, one potential use case is the deployment of R-based web applications alongside Windows containers in an organisation which already runs Windows Containers.
 Instead of battling with the admin or operations teams, R developers may provide an alternative to get their work out.
-The following demos showcase this use case with two popular web application frameworks for R.
+The following demos showcase this use case with two popular web application frameworks for R, and demonstrates the easy use of packages for spatial analysis with complex library dependencies.
 
 - [Plumber](demo/plumber/README.md)
 - [Shiny](demo/shiny/README.md)
+- [sf](demo/sf/README.md)
 
 ## Resources
 
