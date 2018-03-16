@@ -19,7 +19,7 @@ docker run --rm -it rocker-win
 
 docker run --rm -it rocker-win:nano
 
-# get a powershell in the container
+# get a PowerShell in the container
 docker run --rm -it rocker-win powershell.exe
 
 # run Rscript
@@ -27,6 +27,16 @@ docker run --rm -it rocker-win Rscript.exe -e "1+1"
 ```
 
 The images include [micro](https://micro-editor.github.io/) as a terminal-based text editor, see its [commands](https://github.com/zyedidia/micro/blob/master/runtime/help/commands.md) when you want to edit some files within the container.
+
+## Demos and use cases
+
+Linux containers seem like the better way to go for R: they are more lightweight, the [Rocker](https://www.rocker-project.org/) stack of images is excellently maintained and hardened as well as flexible.
+However, one potential use case is the deployment of R-based web applications alongside Windows containers in an organisation which already runs Windows Containers.
+Instead of battling with the admin or operations teams, R developers may provide an alternative to get their work out.
+The following demos showcase this use case with two popular web application frameworks for R.
+
+- [Plumber](demo/plumber/README.md)
+- [Shiny](demo/shiny/README.md)
 
 ## Resources
 
