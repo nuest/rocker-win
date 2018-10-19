@@ -1,7 +1,5 @@
 FROM microsoft/nanoserver:sac2016
 
-MAINTAINER Daniel Nüst <daniel.nuest@uni-muenster.de
-
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ENV R_VERSION 3.4.4
@@ -35,5 +33,12 @@ RUN Invoke-WebRequest https://github.com/zyedidia/micro/releases/download/v$env:
     $microPath = 'C:\micro' ; \
     $newPath = ('{0};{1}' -f $microPath, $env:PATH); \
     setx /M PATH $newPath
+
+# Metadata http://label-schema.org/rc1/
+LABEL maintainer="Daniel Nüst <https://nordholmen.net>" \
+  org.label-schema.url="https://github.com/nuest/rocker-win" \
+  org.label-schema.name="rocker-win" \
+  org.label-schema.description="R in Windows Containers" \
+  org.label-schema.docker.schema-version="rc1"
 
 CMD ["R.exe"]

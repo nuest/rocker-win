@@ -1,7 +1,5 @@
 FROM microsoft/windowsservercore:ltsc2016
 
-MAINTAINER Daniel Nüst <daniel.nuest@uni-muenster.de
-
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 WORKDIR /
@@ -37,5 +35,12 @@ RUN iex ((new-object net.webclient).DownloadString('https://chocolatey.org/insta
     choco feature disable --name showDownloadProgress
 # Install a CLI text editor
 RUN choco install micro -y
+
+# Metadata http://label-schema.org/rc1/
+LABEL maintainer="Daniel Nüst <https://nordholmen.net>" \
+  org.label-schema.url="https://github.com/nuest/rocker-win" \
+  org.label-schema.name="rocker-win" \
+  org.label-schema.description="R in Windows Containers" \
+  org.label-schema.docker.schema-version="rc1"
 
 CMD ["R.exe"]
