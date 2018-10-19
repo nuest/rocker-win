@@ -4,9 +4,9 @@ MAINTAINER Daniel Nüst <daniel.nuest@uni-muenster.de
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-# "latest" version redirect would be available via https://cloud.r-project.org/bin/windows/base/release.htm
 ENV R_VERSION 3.4.4
-ENV R_INSTALLER_HASH 0ff087acbae677d7255af19b0a9df27f
+# https://cloud.r-project.org/bin/windows/base/old/3.4.4/md5sum.txt
+ENV R_INSTALLER_HASH a642a3de7b5c2602180e73f4c04b4fbd
 
 WORKDIR /
 
@@ -14,7 +14,7 @@ WORKDIR /
 RUN Write-Debug [Net.ServicePointManager]::SecurityProtocol ;\
     [Net.ServicePointManager]::SecurityProtocol ;\
     [Net.ServicePointManager]::SecurityProtocol = 'Ssl3', 'Tls', 'Tls11', 'Tls12'; \
-    Invoke-WebRequest https://cloud.r-project.org/bin/windows/base/old/R-$env:R_VERSION-win.exe -OutFile .\R-win.exe
+    Invoke-WebRequest https://cloud.r-project.org/bin/windows/base/old/$env:R_VERSION/R-$env:R_VERSION-win.exe -OutFile .\R-win.exe
 
 RUN if ( (Get-FileHash -Path .\R-win.exe -Algorithm MD5).hash -ne $env:R_INSTALLER_HASH ) { Write-Warning 'hash mismatch for downloaded file, stopping.'; exit 1 }
 
