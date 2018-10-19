@@ -14,16 +14,14 @@ install:
 
 build_script:
   - ps: Write-Host Starting build
-  - ps: |
-      docker build --tag rocker-win:3.4.4 --file 3.4/Dockerfile .
-      docker build --tag rocker-win:3.5.1 --file 3.5/Dockerfile .
-      docker build --tag rocker-win:latest --file latest/Dockerfile .
+  - docker build --tag rocker-win:3.4.4 --file 3.4/Dockerfile .
+  - docker build --tag rocker-win:3.5.1 --file 3.5/Dockerfile .
+  - docker build --tag rocker-win:latest --file latest/Dockerfile .
 
 test_script:
-  - ps: |
-      docker run --rm -it rocker-win:3.4.4 R.exe --version
-      docker run --rm -it rocker-win:3.5.1 R.exe --version
-      docker run --rm -it rocker-win:latest Rscript.exe -e "sessionInfo()"
+  - ps: docker run --rm -it rocker-win:3.4.4 R.exe --version
+  - ps: docker run --rm -it rocker-win:3.5.1 R.exe --version
+  - ps: docker run --rm -it rocker-win:latest Rscript.exe -e "sessionInfo()"
 
 deploy_script:
   - ps: |
