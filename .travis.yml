@@ -16,14 +16,12 @@ script:
 
       # build:
       docker build --tag rocker-win:3.4.3 --file 3.4.3/Dockerfile .
-      docker build --tag rocker-win:3.4.3-nano --file 3.4.3-nano/Dockerfile .
       #docker build --tag rocker-win:3.5.1 --file 3.5.1/Dockerfile .
-      #docker build --tag rocker-win:3.5.1-nano --file 3.5.1-nano/Dockerfile .
       #docker tag rocker-win:3.5.1 rocker-win:latest
 
       # test:
       docker run --rm -it rocker-win:3.4.3 R.exe --version
-      docker run --rm -it rocker-win:3.4.3-nano R.exe --version
+      docker run --rm -it rocker-win:3.4.3 Rscript.exe -e "sessionInfo()"
       #docker run --rm -it rocker-win:3.5.1 R.exe --version
     )
 
