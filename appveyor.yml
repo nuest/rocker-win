@@ -15,11 +15,12 @@ install:
 build_script:
   - ps: Write-Host Starting build
   - ps: |
-      docker build --tag rocker-win:3.4.3 --file 3.4.3/Dockerfile .
+      docker build --tag rocker-win:3.4.4 --file 3.4.4/Dockerfile .
       docker tag rocker-win:3.4.3 rocker-win:latest
 
 test_script:
-  - ps: docker run --rm -it rocker-win R.exe --version
+  - ps: |
+      docker run --rm -it rocker-win:3.4.3 R.exe --version
 
 deploy_script:
   - ps: |
