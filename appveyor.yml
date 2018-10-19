@@ -16,16 +16,21 @@ build_script:
   - ps: Write-Host Starting build
   - ps: |
       docker build --tag rocker-win:3.4.4 --file 3.4.4/Dockerfile .
-      docker tag rocker-win:3.4.3 rocker-win:latest
+      docker build --tag rocker-win:3.5.1 --file 3.5.1/Dockerfile .
+      docker build --tag rocker-win:latest --file current/Dockerfile .
 
 test_script:
   - ps: |
-      docker run --rm -it rocker-win:3.4.3 R.exe --version
+      docker run --rm -it rocker-win:3.4.4 R.exe --version
+      docker run --rm -it rocker-win:3.5.1 R.exe --version
+      docker run --rm -it rocker-win:latest Rscript.exe -e "sessionInfo()"
 
 deploy_script:
   - ps: |
       docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
       docker tag rocker-win:3.4.3 nuest/rocker-win:3.4.3
+      docker tag rocker-win:3.5.1 nuest/rocker-win:3.5.1
       docker tag rocker-win:latest nuest/rocker-win:latest
       docker push nuest/rocker-win:3.4.3
+      docker push nuest/rocker-win:3.5.1
       docker push nuest/rocker-win:latest
