@@ -1,4 +1,4 @@
-FROM microsoft/windowsservercore
+FROM microsoft/windowsservercore:ltsc2016
 
 MAINTAINER Daniel Nüst <daniel.nuest@uni-muenster.de
 

@@ -39,6 +39,10 @@ The following demos showcase this use case with two popular web application fram
 - [Shiny](demo/shiny/README.md)
 - [sf](demo/sf/README.md)
 
+## Building on Appveyor
+
+[Appveyor runs Windows Server 2016](https://www.appveyor.com/docs/windows-images-software/#operating-system) so the base image can also only be Windows Server 2016 (see [Windows Container Version Compatibility](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility)).
+
 ## Resources
 
 - https://docs.docker.com/docker-for-windows/
