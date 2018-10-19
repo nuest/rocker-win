@@ -27,10 +27,11 @@ RUN $rPath = 'C:\R\bin' ; \
 #RUN Add-Content c:\R\etc\Rprofile.site 'options(repos = c(CRAN = \"https://cloud.r-project.org/\"))'
 
 # Install a CLI text editor
-RUN Invoke-WebRequest https://github.com/zyedidia/micro/releases/download/v1.4.0/micro-1.4.0-win64.zip -OutFile .\micro.zip; \
+ENV MICRO_VERSION 1.4.1
+RUN Invoke-WebRequest https://github.com/zyedidia/micro/releases/download/v$env:MICRO_VERSION/micro-$env:MICRO_VERSION-win64.zip -OutFile .\micro.zip; \
     Expand-Archive -Path .\micro.zip -DestinationPath . -Force; \
     Remove-Item .\micro.zip -Force; \
-    Rename-Item .\micro-1.4.0 .\micro; \
+    Rename-Item .\micro-$env:MICRO_VERSION .\micro; \
     $microPath = 'C:\micro' ; \
     $newPath = ('{0};{1}' -f $microPath, $env:PATH); \
     setx /M PATH $newPath
