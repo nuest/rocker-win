@@ -15,11 +15,11 @@ script:
       set -x
 
       # build:
-      docker build --tag rocker-win:latest --file latest/Dockerfile .
+      docker build --tag rocker-win:1803-latest --file 1803/latest/Dockerfile .
       
       # test:
-      docker run --rm -it rocker-win R.exe --version
-      docker run --rm -it rocker-win Rscript.exe -e "sessionInfo()"
+      docker run --rm -it rocker-win:1803-latest R.exe --version
+      docker run --rm -it rocker-win:1803-latest Rscript.exe -e "sessionInfo()"
     )
 
 after_script:
