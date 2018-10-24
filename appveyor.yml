@@ -25,7 +25,7 @@ test_script:
 
 deploy_script:
   - ps: |
-      docker login -u="$env:DOCKER_USER" -p="$env:DOCKER_PASS"
+      echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
       docker tag rocker-win:3.4.3 nuest/rocker-win:3.4.3
       docker tag rocker-win:3.5.1 nuest/rocker-win:3.5.1
       docker tag rocker-win:latest nuest/rocker-win:latest
