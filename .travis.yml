@@ -27,7 +27,7 @@ script:
       docker run --rm rocker-win:1803-latest Rscript.exe -e "sessionInfo()"
 
       # test ltsc2016-based image:
-      docker run --rm rocker-win:ltsc2016-latest Rscript.exe -e "sessionInfo()"
+      docker run --rm nuest/rocker-win:ltsc2016-latest Rscript.exe -e "sessionInfo()"
     )
 
 after_script:
