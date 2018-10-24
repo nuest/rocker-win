@@ -3,11 +3,39 @@
 Explorations into running [R](https://www.r-project.org/) in [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index) with [Docker for Windows](https://docs.docker.com/docker-for-windows/).
 It provides images based on [`microsoft/windowsservercore`](https://hub.docker.com/r/microsoft/windowsservercore/) and [`microsoft/nanoserver`](https://hub.docker.com/r/microsoft/nanoserver/).
 
-[![Build status](https://ci.appveyor.com/api/projects/status/y0jvpgsrl00wqe5i?svg=true)](https://ci.appveyor.com/project/nuest/rocker-win) [![](https://images.microbadger.com/badges/image/nuest/rocker-win.svg)](https://microbadger.com/images/nuest/rocker-win "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/nuest/rocker-win.svg)](https://microbadger.com/images/nuest/rocker-win "Get your own version badge on microbadger.com")
-
 ## Available images
 
 This little side-project is currently for exploration only, therefore not all bugfix versions of R are re-build regularly.
+There are two base images, limited by the availability of Microsoft Windows Server versions of public CI platforms.
+
+[![](https://images.microbadger.com/badges/image/nuest/rocker-win.svg)](https://microbadger.com/images/nuest/rocker-win "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/nuest/rocker-win.svg)](https://microbadger.com/images/nuest/rocker-win "Get your own version badge on microbadger.com")
+
+See also [Windows Container Version Compatibility](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility)
+
+### Windows Server 2016
+
+Base image: `microsoft/windowsservercore:ltsc2016`
+
+Built by Appveyor: [![Build status](https://ci.appveyor.com/api/projects/status/y0jvpgsrl00wqe5i?svg=true)](https://ci.appveyor.com/project/nuest/rocker-win)
+
+Images:
+
+- `nuest/rocker-win:ltsc2016-3.5.1`
+- `nuest/rocker-win:ltsc2016-latest`
+
+###  Windows Server 1803
+
+Base image: `microsoft/windowsservercore:1803`
+
+Built by Travis CI: [![Build Status](https://travis-ci.org/nuest/rocker-win.svg?branch=master)](https://travis-ci.org/nuest/rocker-win)
+
+Images:
+
+- `nuest/rocker-win:1803-3.5.1` (== `nuest/rocker-win:3.5.1`)
+- `nuest/rocker-win:1803-latest` (== `nuest/rocker-win:latest`)
+
+### R versions
+
 Each minor version has it's own `Dockerfile` in a directory named as the version number, e.g. `3.5`.
 
 _Images updates on Docker Hub are triggered manually._

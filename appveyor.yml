@@ -14,9 +14,9 @@ install:
 
 build_script:
   - ps: Write-Host Starting build
-  - docker build --tag rocker-win:3.4.4 --file 3.4/Dockerfile .
-  - docker build --tag rocker-win:3.5.1 --file 3.5/Dockerfile .
-  - docker build --tag rocker-win:latest --file latest/Dockerfile .
+  - docker build --tag rocker-win:3.4.4 --file ltsc2016/3.4/Dockerfile .
+  - docker build --tag rocker-win:3.5.1 --file ltsc2016/3.5/Dockerfile .
+  - docker build --tag rocker-win:latest --file ltsc2016/latest/Dockerfile .
 
 test_script:
   - ps: docker run --rm -it rocker-win:3.4.4 R.exe --version
@@ -26,12 +26,12 @@ test_script:
 deploy_script:
   - ps: |
       echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
-      docker tag rocker-win:3.4.3 nuest/rocker-win:3.4.3
-      docker tag rocker-win:3.5.1 nuest/rocker-win:3.5.1
-      docker tag rocker-win:latest nuest/rocker-win:latest
-      docker push nuest/rocker-win:3.4.3
-      docker push nuest/rocker-win:3.5.1
-      docker push nuest/rocker-win:latest
+      docker tag rocker-win:3.4.3 nuest/rocker-win:ltsc2016-3.4.3
+      docker tag rocker-win:3.5.1 nuest/rocker-win:ltsc2016-3.5.1
+      docker tag rocker-win:latest nuest/rocker-win:ltsc2016-latest
+      docker push nuest/rocker-win:ltsc2016-3.4.3
+      docker push nuest/rocker-win:ltsc2016-3.5.1
+      docker push nuest/rocker-win:ltsc2016-latest
 
 on_finish:
   - docker images
