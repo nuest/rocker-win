@@ -26,10 +26,10 @@ test_script:
 deploy_script:
   - ps: |
       echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
-      docker tag rocker-win:3.4.3 nuest/rocker-win:ltsc2016-3.4.3
+      docker tag rocker-win:3.4.4 nuest/rocker-win:ltsc2016-3.4.4
       docker tag rocker-win:3.5.1 nuest/rocker-win:ltsc2016-3.5.1
       docker tag rocker-win:latest nuest/rocker-win:ltsc2016-latest
-      docker push nuest/rocker-win:ltsc2016-3.4.3
+      docker push nuest/rocker-win:ltsc2016-3.4.4
       docker push nuest/rocker-win:ltsc2016-3.5.1
       docker push nuest/rocker-win:ltsc2016-latest
 
