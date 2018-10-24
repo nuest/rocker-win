@@ -18,8 +18,8 @@ script:
       docker build --tag rocker-win:1803-latest --file 1803/latest/Dockerfile .
       
       # test:
-      docker run --rm -it rocker-win:1803-latest R.exe --version
-      docker run --rm -it rocker-win:1803-latest Rscript.exe -e "sessionInfo()"
+      winpty docker run --rm -it rocker-win:1803-latest R.exe --version
+      winpty docker run --rm -it rocker-win:1803-latest Rscript.exe -e "sessionInfo()"
     )
 
 after_script:
