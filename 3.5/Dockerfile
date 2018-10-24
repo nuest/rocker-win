@@ -1,7 +1,5 @@
 FROM microsoft/windowsservercore:ltsc2016
 
-MAINTAINER Daniel Nüst <daniel.nuest@uni-muenster.de
-
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # "latest" version redirect would be available via https://cloud.r-project.org/bin/windows/base/release.htm
