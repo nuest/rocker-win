@@ -35,7 +35,7 @@ test_script:
   - ps: docker run --rm -it rocker-win:latest Rscript.exe -e "sessionInfo()"
   #- ps: docker run --rm -it rocker-win:3.6.2 Rscript.exe -e "sessionInfo()"
 
-build_success:
+deploy_script:
   - ps: |
       echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
 
