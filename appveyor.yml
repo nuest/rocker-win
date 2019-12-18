@@ -49,7 +49,7 @@ deploy_script:
         docker tag rocker-win:latest nuest/rocker-win:ltsc2019-latest
         docker tag rocker-win:latest nuest/rocker-win:latest
       }
-  - ps: Pushing images
+  - ps: Write-Host Pushing images
   - ps: |
       if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
         docker push nuest/rocker-win:ltsc2016-3.4.4
