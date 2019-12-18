@@ -5,10 +5,10 @@ image:
   - Visual Studio 2019
 
 environment:
-  DOCKER_USER:
+  DOCKER_USERNAME:
     secure: kAzYC3KJP1op+bjIuqQRdg==
-  DOCKER_PASS:
-    secure: qh5Dw8ePSOpWoRpxzNdsNZWzX8u0PjTUTTx200SP2JE=
+  DOCKER_PASSWORD:
+    secure: aIci6pTBHKb7H8As9bSMCfxqsH/Wq6EUq+HTO3Q+okO1RxTmwh1r4aMuNW4ggvzX
 
 before_build:
   - ps: Write-Host Server version $(gp 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion').BuildLabEx
@@ -35,7 +35,7 @@ test_script:
   #- ps: docker run --rm -it rocker-win:3.6.2 Rscript.exe -e "sessionInfo()"
 
 deploy_script:
-  - ps: echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
+  - ps: echo "$env:DOCKER_PASSWORD" | docker login -u "$env:DOCKER_USERNAME" --password-stdin
   - ps: Write-Host Tagging images
   - ps: |
       if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
