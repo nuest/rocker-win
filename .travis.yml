@@ -20,9 +20,11 @@ script:
       set -x
 
       # build:
+      docker build --tag rocker-win:1803-3.5.3 --file 1803/3.5/Dockerfile .
       docker build --tag rocker-win:1803-latest --file 1803/latest/Dockerfile .
       
       # test:
+      docker run --rm rocker-win:1803-3.5.3 Rscript.exe -e "sessionInfo()"
       docker run --rm rocker-win:1803-latest R.exe --version
       docker run --rm rocker-win:1803-latest Rscript.exe -e "sessionInfo()"
 

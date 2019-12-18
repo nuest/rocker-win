@@ -3,8 +3,8 @@ FROM microsoft/windowsservercore:1803
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # "latest" version redirect would be available via https://cloud.r-project.org/bin/windows/base/release.htm
-ENV R_VERSION 3.5.1
-ENV R_INSTALLER_HASH d74d18509f515b0daec55d759b4954b9
+ENV R_VERSION 3.5.3
+ENV R_INSTALLER_HASH 748ada71caf64e0baeabc6172b462cf8
 
 WORKDIR /
 
