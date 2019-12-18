@@ -87,6 +87,13 @@ The automatic image builds depend on Appveyor because [Docker Hub does not suppo
 - https://github.com/StefanScherer/dockerfiles-windows and https://hub.docker.com/r/stefanscherer
 - https://stefanscherer.github.io/setup-windows-docker-ci-appveyor/
 
+## Contribute
+
+_Your contributions are welcome!_
+This repository really is mostly a proof-of-concept, but I'd be happy to support anyone who wants to turn this into a suite of images aspiring to the [Rocker Project](https://www.rocker-project.org/).
+
+Note this project has a [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## License
 
 Contributions in this repository are published under MIT license (see file LICENSE).
