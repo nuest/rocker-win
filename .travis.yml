@@ -4,10 +4,10 @@ services: docker
 
 os: windows
 
-#env:
-#  global:
-#    secure: jeg2OYik78kZ2vdf77FCJHMZJTdjBz2DEM763Ewb4ccODFPH5l9W5roG5ybKBZAiMFRYfyt5krsYe3DxSB7iNhHUGL18UgY0t+BmzUbAaV87139lp/uFNW7ysdlxtOYai0Y0Ys01i/OpL8TXWCE7YrVMCDtqwDIV5PBC3J1nox2OhXU5NsuhbmIv2ESrnArcPipJniokaXPW/Ef2XYcwQsoJhc5SMEX7FUUq89bXPIusmttp73rP7j/qWbdFo8pY1jlisHX7RwuLciBfQ3tRxSbjqfLUZh/yaJiy+/oAN4dAEomLsF09RpaxdVepjli3SHUcQ41VYBN3L/NGHfSazZS4yVJXwLhnuxQ5PrmmLCjXgny5cECS5dyizrAce8t3gPxCFfeRGAAvdclRwfIDuDecCcm0yV9KC9M/b6bmgmgEGJsFkvAzXnRO7irNrVBYQFnrFWgiqktTOoHz1Wuw/TIEFOI5p8sSf1nvuOYyZ5AuetTTAyksGkev58LKS74LMZinojSJnAM70zWBID0k8dmk0eStE6DAPZ3JUCvMNr8WWjY/Gp2jLyPhUzxU3ocVPXsHvTEnw0xibA4v/p6d3vbNvqUNbN4hyP0JK3e7o2B9a30sCZ/Y7vENPqtECI2S+NXpcUqcXHHUUCiEdDDdkZS4AyvTNDl6zXkBK+sDTPw=
-#    secure: "NxlWKzryKc4cpG7RyNzRDV9oYJOyEgI27bK8NGkMcL8RMRMs8KyDCmW6nKE5ScH/yDHd1OFIUzcj+KiIU9wH0E7ADzJCpsaL9Fr3nAyFmohjwLb4sNYtpIYpCGop3IkB+NSr3vlVfEs76f3vsj+ZVuCe2M9MKxGVxoCCtz1pUgjfLL3xKPRfj5kxqkwI2Ez7GHYuRDe077XvYOTcpaFETH+jc8LbUsangQiJlmV/lZAAXycJ0zAMBUTTPlzc1BPQWNfMZRwJfP/mQpFuSY31FZEAkyzJuiTv93/lg4FaQDV2X14Moe33fiqXZ7ZfNMm9zXUf2i2OB0VGIm/Dc8HwYp84Tsl4Ab+tQRhhG1NPP2jjWSg4XuAln3/9WeBO3WmSqL8fBrewYjaNCfq0Qf+VShCbRsQh33qoSiStbaHFqw6WVWIhkms4STDl7WoCk4gHevUTw0oIYo7nmpIztEZZYWFejNleJvLPNKquUtWHK+gHud/wuKU7Q0LJz4vzlZ2/XQSXHZYixrhiW3zuudQOgMhGaFBPU7TyRzB6Qrffval0cNsMjM4rIzZXxezXHfQdQ7g3xmWGdRuQrVscJ9R0hSIZkCqwQKU0unQelY9ohu0E7isev4UqMXbiSLO1jd0NHe01nVLthfoao5Hic0Hz3ySlRTY0divqsb9QOsfXQU8="
+env:
+  global:
+    secure: jeg2OYik78kZ2vdf77FCJHMZJTdjBz2DEM763Ewb4ccODFPH5l9W5roG5ybKBZAiMFRYfyt5krsYe3DxSB7iNhHUGL18UgY0t+BmzUbAaV87139lp/uFNW7ysdlxtOYai0Y0Ys01i/OpL8TXWCE7YrVMCDtqwDIV5PBC3J1nox2OhXU5NsuhbmIv2ESrnArcPipJniokaXPW/Ef2XYcwQsoJhc5SMEX7FUUq89bXPIusmttp73rP7j/qWbdFo8pY1jlisHX7RwuLciBfQ3tRxSbjqfLUZh/yaJiy+/oAN4dAEomLsF09RpaxdVepjli3SHUcQ41VYBN3L/NGHfSazZS4yVJXwLhnuxQ5PrmmLCjXgny5cECS5dyizrAce8t3gPxCFfeRGAAvdclRwfIDuDecCcm0yV9KC9M/b6bmgmgEGJsFkvAzXnRO7irNrVBYQFnrFWgiqktTOoHz1Wuw/TIEFOI5p8sSf1nvuOYyZ5AuetTTAyksGkev58LKS74LMZinojSJnAM70zWBID0k8dmk0eStE6DAPZ3JUCvMNr8WWjY/Gp2jLyPhUzxU3ocVPXsHvTEnw0xibA4v/p6d3vbNvqUNbN4hyP0JK3e7o2B9a30sCZ/Y7vENPqtECI2S+NXpcUqcXHHUUCiEdDDdkZS4AyvTNDl6zXkBK+sDTPw=
+    secure: "NxlWKzryKc4cpG7RyNzRDV9oYJOyEgI27bK8NGkMcL8RMRMs8KyDCmW6nKE5ScH/yDHd1OFIUzcj+KiIU9wH0E7ADzJCpsaL9Fr3nAyFmohjwLb4sNYtpIYpCGop3IkB+NSr3vlVfEs76f3vsj+ZVuCe2M9MKxGVxoCCtz1pUgjfLL3xKPRfj5kxqkwI2Ez7GHYuRDe077XvYOTcpaFETH+jc8LbUsangQiJlmV/lZAAXycJ0zAMBUTTPlzc1BPQWNfMZRwJfP/mQpFuSY31FZEAkyzJuiTv93/lg4FaQDV2X14Moe33fiqXZ7ZfNMm9zXUf2i2OB0VGIm/Dc8HwYp84Tsl4Ab+tQRhhG1NPP2jjWSg4XuAln3/9WeBO3WmSqL8fBrewYjaNCfq0Qf+VShCbRsQh33qoSiStbaHFqw6WVWIhkms4STDl7WoCk4gHevUTw0oIYo7nmpIztEZZYWFejNleJvLPNKquUtWHK+gHud/wuKU7Q0LJz4vzlZ2/XQSXHZYixrhiW3zuudQOgMhGaFBPU7TyRzB6Qrffval0cNsMjM4rIzZXxezXHfQdQ7g3xmWGdRuQrVscJ9R0hSIZkCqwQKU0unQelY9ohu0E7isev4UqMXbiSLO1jd0NHe01nVLthfoao5Hic0Hz3ySlRTY0divqsb9QOsfXQU8="
 
 jobs:
   include:
@@ -39,22 +39,13 @@ script:
 
 after_script:
   - docker images
-      docker run --rm rocker-win:1803-latest R.exe --version
-      docker run --rm rocker-win:1803-latest Rscript.exe -e "sessionInfo()"
+  - |
+    (
+      set -Eeuo pipefail
+      set -x
 
-      # test ltsc2016-based image - does not run: https://travis-ci.org/nuest/rocker-win/builds/446036668
-      #docker run --rm nuest/rocker-win:ltsc2016-latest Rscript.exe -e "sessionInfo()"
+      echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+
+      docker tag rocker-win:1803-$R_VERSION nuest/rocker-win:1803-$R_VERSION
+      docker push nuest/rocker-win:1803-$R_VERSION
     )
-
-#after_script:
-#  - docker images
-#  - |
-#    (
-#      set -Eeuo pipefail
-#      set -x
-#
-#      echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-#
-#      docker tag rocker-win:1803-latest nuest/rocker-win:1803-latest
-#      docker push nuest/rocker-win:1803-latest
-#    )
