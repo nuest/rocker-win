@@ -3,7 +3,6 @@ FROM microsoft/windowsservercore:ltsc2016
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 ENV R_VERSION 3.4.4
-# https://cloud.r-project.org/bin/windows/base/old/3.4.4/md5sum.txt
 ENV R_INSTALLER_HASH a642a3de7b5c2602180e73f4c04b4fbd
 
 WORKDIR /

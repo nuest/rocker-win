@@ -12,7 +12,7 @@ WORKDIR /
 RUN Write-Debug [Net.ServicePointManager]::SecurityProtocol ;\
     [Net.ServicePointManager]::SecurityProtocol ;\
     [Net.ServicePointManager]::SecurityProtocol = 'Ssl3', 'Tls12'; \
-    Invoke-WebRequest https://cloud.r-project.org/bin/windows/base/old/R-$env:R_VERSION-win.exe -OutFile .\R-win.exe
+    Invoke-WebRequest https://cloud.r-project.org/bin/windows/base/old/$env:R_VERSION/R-$env:R_VERSION-win.exe -OutFile .\R-win.exe
 
 RUN if ( (Get-FileHash -Path .\R-win.exe -Algorithm MD5).hash -ne $env:R_INSTALLER_HASH ) { Write-Warning 'hash mismatch for downloaded file, stopping.'; exit 1 }
 
