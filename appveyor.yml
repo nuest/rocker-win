@@ -1,11 +1,10 @@
 version: 1.0.{build}
 
-# image: images are configured below in environment.matrix for parallel jobs
+image:
+  - Visual Studio 2017
+  - Visual Studio 2019
 
 environment:
-  matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
   DOCKER_USER:
     secure: kAzYC3KJP1op+bjIuqQRdg==
   DOCKER_PASS:
@@ -57,7 +56,7 @@ deploy_script:
         docker push nuest/rocker-win:ltsc2016-3.5.3
         docker push nuest/rocker-win:ltsc2016-latest
       }
-
+      
       if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2019") {
         docker push nuest/rocker-win:ltsc2019-3.6.2
         docker push nuest/rocker-win:ltsc2019-latest
