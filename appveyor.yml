@@ -18,8 +18,8 @@ build_script:
   - ps: Write-Host Starting build $env:APPVEYOR_BUILD_WORKER_IMAGE
   - ps: |
       if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
-        docker build --tag rocker-win:3.4.4 --file ltsc2016/3.4/Dockerfile .
-        docker build --tag rocker-win:3.5.3 --file ltsc2016/3.5/Dockerfile .
+        docker build --tag rocker-win:3.4.4 --file ltsc2016/3.4.4/Dockerfile .
+        docker build --tag rocker-win:3.5.3 --file ltsc2016/3.5.3/Dockerfile .
         docker build --tag rocker-win:latest --file ltsc2016/latest/Dockerfile .
       }
 
@@ -36,23 +36,28 @@ test_script:
 
 deploy_script:
   - ps: echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
-  - ps: Write-Host Starting build $env:APPVEYOR_BUILD_WORKER_IMAGE
+  - ps: Write-Host Tagging images
   - ps: |
       if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
         docker tag rocker-win:3.4.4 nuest/rocker-win:ltsc2016-3.4.4
         docker tag rocker-win:3.5.3 nuest/rocker-win:ltsc2016-3.5.3
         docker tag rocker-win:latest nuest/rocker-win:ltsc2016-latest
-        
-        docker push nuest/rocker-win:ltsc2016-3.4.4
-        docker push nuest/rocker-win:ltsc2016-3.5.3
-        docker push nuest/rocker-win:ltsc2016-latest
       }
 
       if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2019") {
         docker tag rocker-win:3.6.2 nuest/rocker-win:ltsc2019-3.6.2
         docker tag rocker-win:latest nuest/rocker-win:ltsc2019-latest
         docker tag rocker-win:latest nuest/rocker-win:latest
-
+      }
+  - ps: Pushing images
+  - ps: |
+      if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
+        docker push nuest/rocker-win:ltsc2016-3.4.4
+        docker push nuest/rocker-win:ltsc2016-3.5.3
+        docker push nuest/rocker-win:ltsc2016-latest
+      }
+      
+      if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2019") {
         docker push nuest/rocker-win:ltsc2019-3.6.2
         docker push nuest/rocker-win:ltsc2019-latest
         docker push nuest/rocker-win:latest
