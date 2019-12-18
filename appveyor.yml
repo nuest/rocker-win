@@ -15,16 +15,15 @@ before_build:
   - docker version
 
 build_script:
+  - ps: Write-Host Starting build $env:APPVEYOR_BUILD_WORKER_IMAGE
   - ps: |
-      Write-Host Starting build $env:APPVEYOR_BUILD_WORKER_IMAGE
-
-      if($env:APPVEYOR_BUILD_WORKER_IMAGE -like "2017") {
+      if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
         docker build --tag rocker-win:3.4.4 --file ltsc2016/3.4/Dockerfile .
         docker build --tag rocker-win:3.5.3 --file ltsc2016/3.5/Dockerfile .
         docker build --tag rocker-win:latest --file ltsc2016/latest/Dockerfile .
       }
 
-      if($env:APPVEYOR_BUILD_WORKER_IMAGE -like "2019") {
+      if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2019") {
         docker build --tag rocker-win:3.6.2 --file ltsc2019/latest/Dockerfile .
         docker build --tag rocker-win:latest --file ltsc2019/latest/Dockerfile .
       }
@@ -36,12 +35,10 @@ test_script:
   #- ps: docker run --rm -it rocker-win:3.6.2 Rscript.exe -e "sessionInfo()"
 
 deploy_script:
+  - ps: echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
+  - ps: Write-Host Starting build $env:APPVEYOR_BUILD_WORKER_IMAGE
   - ps: |
-      echo "$env:DOCKER_PASS" | docker login -u "$env:DOCKER_USER" --password-stdin
-
-      Write-Host Starting build $env:APPVEYOR_BUILD_WORKER_IMAGE
-      
-      if($env:APPVEYOR_BUILD_WORKER_IMAGE -like "2017") {
+      if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2017") {
         docker tag rocker-win:3.4.4 nuest/rocker-win:ltsc2016-3.4.4
         docker tag rocker-win:3.5.3 nuest/rocker-win:ltsc2016-3.5.3
         docker tag rocker-win:latest nuest/rocker-win:ltsc2016-latest
@@ -51,7 +48,7 @@ deploy_script:
         docker push nuest/rocker-win:ltsc2016-latest
       }
 
-      if($env:APPVEYOR_BUILD_WORKER_IMAGE -like "2019") {
+      if($env:APPVEYOR_BUILD_WORKER_IMAGE -eq "Visual Studio 2019") {
         docker push nuest/rocker-win:ltsc2019-3.6.2
         docker push nuest/rocker-win:ltsc2019-latest
       }
