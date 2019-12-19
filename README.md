@@ -65,6 +65,8 @@ docker build --tag rocker-win:3.6.2 --file ltsc2016/3.6.2/Dockerfile .
 
 The CI configuration files `.travis.yml` and `appveyor.yml` contain more examples.
 
+_On my personal Windows 10 Professional, I was able to build images using all the platform variants (`ltsc2019`, `ltsc206`, and `1803`)._
+
 ## Use
 
 Remove the `nuest/` from image names to use locally built images.
