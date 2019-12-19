@@ -1,6 +1,6 @@
 # rocker-win
 
-[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3584107.svg)](https://doi.org/10.5281/zenodo.3584107)
 
 Proof of concept for running [R](https://www.r-project.org/) in [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/index) with [Docker for Windows](https://docs.docker.com/docker-for-windows/).
 It provides selected images based on [`microsoft/windowsservercore`](https://hub.docker.com/r/microsoft/windowsservercore/), using various base images and exploring automated builds on different platforms.
